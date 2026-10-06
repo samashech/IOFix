@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#152a25"><title>FixLens — Circuit diagnostics</title><link rel="stylesheet" href="/src/style.css"><script type="module" src="/src/app.js"></script></head>
+<body>
+<header><a href="/" class="brand"><span class="mark">F</span>FixLens<span class="brand-detail">CIRCUIT DIAGNOSTICS</span></a><span class="local-label">LOCAL WORKSPACE</span></header>
+<main>
+<section class="intro"><p class="eyebrow">FROM ASSEMBLY TO ANSWERS</p><h1>Find the fault.<br><em>Understand the fix.</em></h1><p>Photograph your circuit. Investigate the connections,<br class="desktop-break"> power paths, and components behind the problem.</p></section>
+<form id="case-form" class="workspace">
+<section class="panel evidence-panel"><p class="eyebrow">01 / CIRCUIT EVIDENCE</p><h2>Start with the hardware.</h2><p class="muted">Add an overview, then close-ups of connectors, board labels, or the underside. You can include a schematic as another image.</p>
+<label class="upload-zone" for="photos"><span class="upload-icon">＋</span><strong>Choose circuit photos</strong><span>JPEG, PNG or WebP · Up to 4 images · 4 MB each</span><input type="file" id="photos" accept="image/jpeg,image/png,image/webp" multiple></label>
+<div id="photo-list" class="photo-list"></div><p id="photo-error" class="error" role="alert"></p>
+<p class="small">Photos stay in this tab until you run analysis, then go to your local model. They are not saved by FixLens.</p>
+<div class="context-heading"><h3>Give the image some context.</h3><span>OPTIONAL, BUT USEFUL</span></div>
+<label for="purpose">What should this circuit do?</label><textarea id="purpose" rows="2" maxlength="12000" placeholder="An ESP32 controls two motors and reads an IMU over I²C…"></textarea>
+<label for="symptoms">What is going wrong?</label><textarea id="symptoms" rows="2" maxlength="12000" placeholder="The controller resets when either motor starts…"></textarea>
+<details><summary>Components, power rails & reference information</summary><label for="components">Exact modules and power sources</label><textarea id="components" rows="3" maxlength="12000" placeholder="Board revisions, driver modules, supply voltages, battery configuration…"></textarea><label for="reference">Pin mapping, measurements, schematic notes or logs</label><textarea id="reference" rows="4" maxlength="12000" placeholder="Include measured values with units and test conditions. Paste relevant reference details; URLs are not fetched."></textarea></details>
+<div class="model-row"><label for="model">Analysis model</label><button id="refresh-models" type="button" class="text-button">Refresh</button></div><select id="model" required><option value="">Checking local vision models…</option></select><p id="model-status" class="small" role="status"></p>
+<div class="actions"><button id="analyze" class="primary" type="submit" disabled>Analyze circuit <span>↗</span></button><button id="cancel" type="button" hidden>Cancel</button></div><p id="request-status" role="status" class="small"></p>
+</section>
+<section class="panel report-panel" aria-labelledby="report-title"><div class="report-heading"><div><p class="eyebrow">02 / DIAGNOSTIC REPORT</p><h2 id="report-title">Evidence before assumptions.</h2></div><span class="status-badge" id="report-badge">AWAITING PHOTOS</span></div>
+<div id="report" aria-live="polite"><div class="empty-state"><div class="crosshair">⌖</div><h3>A clear path from fault to fix.</h3><p>Your report will separate visible evidence from hypotheses and identify the checks needed to tell them apart.</p></div><div class="report-outline"><div><span>01</span><p><strong>Locate the suspected issue</strong>Component, connection, or power path.</p></div><div><span>02</span><p><strong>Explain the evidence</strong>What the photos support and what remains unknown.</p></div><div><span>03</span><p><strong>Fix, then verify</strong>A proposed correction and a test of the diagnosis.</p></div></div></div>
+<div id="report-actions" hidden><button type="button" id="download">Download report JSON ↗</button><p class="small">Includes the input text and photo filenames; image files are not included.</p></div>
+<p class="report-note">A photo cannot reveal hidden nets, actual voltages, firmware state, or intermittent faults. Findings are model suggestions until checked against the hardware.</p>
+</section>
+</form>
+</main><footer><span>FIXLENS / INSPECT. REASON. REPAIR.</span><span>Built for the robotics workbench.</span></footer>
+</body></html>

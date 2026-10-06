@@ -1,0 +1,19 @@
+{
+  "caseId": "",
+  "assemblyId": "",
+  "boardAndModuleRevisions": [],
+  "photos": [],
+  "intendedBehavior": "",
+  "symptoms": "",
+  "powerRails": [],
+  "schematicOrNetlist": "",
+  "measurements": [],
+  "confirmedFaults": [],
+  "invisibleOrAmbiguousFromPhotos": [],
+  "repairPerformed": "",
+  "physicalRetestResult": "",
+  "reviewer": "",
+  "permissionForEvaluation": false,
+  "permissionForTraining": false,
+  "splitByAssembly": "unassigned"
+}

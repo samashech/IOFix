@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172c26">
+    <title>FixLens — Robotics lab companion</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <header><a class="brand" href="/" aria-label="FixLens home"><span class="brand-icon">F</span>FixLens<span class="brand-label">ROBOTICS LAB COMPANION</span></a><span class="prototype">LOCAL PROTOTYPE · 01</span></header>
+    <main>
+      <div class="intro"><p class="eyebrow">THE FIRST CONNECTION</p><h1>Build it. Understand it.<br><em>Get it working.</em></h1><p>A guided circuit check for your first robotics lab.<br>Follow the evidence, one connection at a time.</p></div>
+      <div class="workspace">
+        <aside class="reference panel">
+          <p class="eyebrow">01 / YOUR REFERENCE</p><h2>Make your first LED blink</h2><p class="muted">Arduino Uno · External LED · Digital pin 8</p>
+          <div class="diagram"><svg viewBox="0 0 460 190" role="img" aria-labelledby="circuit-title circuit-desc"><title id="circuit-title">LED circuit schematic</title><desc id="circuit-desc">Arduino Uno digital pin 8 connects through a 220 to 330 ohm resistor to the LED anode. The LED cathode connects to Arduino ground. This is a logical schematic, not a breadboard layout.</desc><rect x="12" y="40" width="120" height="115" rx="12" fill="#254c40"/><text x="72" y="79" fill="white" text-anchor="middle" font-size="16">ARDUINO</text><text x="72" y="101" fill="#bdd5c6" text-anchor="middle" font-size="12">UNO</text><text x="109" y="62" fill="white" font-size="11">D8</text><text x="97" y="143" fill="white" font-size="11">GND</text><path d="M132 57 H185 M235 57 H335 V80 M335 111 V139 H132" fill="none" stroke="#315e4c" stroke-width="3"/><rect x="185" y="47" width="50" height="20" rx="3" fill="#f2d89a" stroke="#7b673e" stroke-width="2"/><text x="210" y="32" text-anchor="middle" font-size="12" fill="#385348">220–330 Ω</text><path d="M321 80 H349 L335 105 Z M321 106 H349" fill="#dba948" stroke="#6f5725" stroke-width="2"/><path d="M355 84 L369 70 M361 96 L375 82" stroke="#a87719" stroke-width="2"/><text x="390" y="104" font-size="13" fill="#385348">LED</text><text x="303" y="77" font-size="11" fill="#385348">A</text><text x="303" y="120" font-size="11" fill="#385348">K</text><circle cx="132" cy="57" r="4" fill="#dba948"/><circle cx="132" cy="139" r="4" fill="#dba948"/></svg><p>Logical circuit · A = anode · K = cathode</p></div>
+          <div class="reference-note"><strong>Before changing a connection</strong><p>Disconnect USB power. This lab uses only a USB-powered Uno and a low-voltage LED circuit.</p></div>
+          <details><summary>Parts & breadboard guidance</summary><ul><li>Arduino Uno and USB cable</li><li>LED and 220–330 Ω resistor</li><li>Breadboard and jumper wires</li></ul><p>Each connected strip is one electrical node. Put the LED legs on different nodes. Breadboard rails may be split; verify your board’s layout.</p></details>
+          <details><summary>Reference Arduino sketch</summary><p>Upload this sketch before troubleshooting. It uses D8, not the built-in LED pin.</p><pre id="sketch"></pre></details>
+        </aside>
+        <section class="panel diagnosis" aria-labelledby="diagnosis-title"><div class="section-heading"><div><p class="eyebrow">02 / WORK THROUGH THE CIRCUIT</p><h2 id="diagnosis-title">What have you checked?</h2></div><span id="progress" class="counter"></span></div><p class="muted">Record what you observe. “Not sure” is a useful starting point.</p><div class="progress-track"><div id="progress-bar"></div></div><div id="checks"></div></section>
+        <section class="panel findings" aria-labelledby="findings-title"><div class="section-heading"><div><p class="eyebrow">03 / YOUR LAB NOTES</p><h2 id="findings-title">Evidence & next steps</h2></div><span class="source-label">STUDENT OBSERVATIONS</span></div><p class="muted">These findings come from your answers. No camera analysis or electrical measurements have been performed.</p><div id="issues" aria-live="polite"></div><label for="notes">What else did you notice?</label><textarea id="notes" rows="3" placeholder="For example: the LED flashed once, or I moved the ground wire…"></textarea><div class="retest"><h3>Reconnect safely, then retest</h3><p>After checking the wiring and series resistor, reconnect USB. Does the LED alternate on and off every second?</p><div class="actions"><button id="working" class="primary">Yes, it blinks</button><button id="blocked">I need a mentor</button></div><p id="outcome" role="status"></p></div><div class="footer-actions"><button id="export">Download mentor handoff ↗</button><button id="reset" class="text-button">Start a new session</button></div><p id="save-status" class="small" role="status">Observations are saved in this browser.</p></section>
+      </div>
+    </main><footer>FIXLENS / LEARN BY FINDING OUT <span>One lab. One connection at a time.</span></footer>
+  </body>
+</html>
