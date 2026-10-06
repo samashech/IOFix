@@ -1,6 +1,6 @@
 import { lab, sketch, newSession, answerCheck, issuesFor, restoreSession, mentorReport } from './lab.js';
 
-const key = 'fixlens.session.v1';
+const key = 'iofix.session.v1';
 let session;
 try { session = restoreSession(localStorage.getItem(key)); } catch { session = newSession(); }
 const $ = selector => document.querySelector(selector);
@@ -52,7 +52,7 @@ for (const outcome of ['working', 'blocked']) {
 }
 $('#export').addEventListener('click', () => {
   const url = URL.createObjectURL(new Blob([mentorReport(session)], { type: 'text/markdown;charset=utf-8' }));
-  const link = document.createElement('a'); link.href = url; link.download = 'fixlens-mentor-handoff.md';
+  const link = document.createElement('a'); link.href = url; link.download = 'iofix-mentor-handoff.md';
   document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 $('#reset').addEventListener('click', () => {

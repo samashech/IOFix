@@ -1,10 +1,10 @@
 // Integration/UI tests use an explicit model fixture, not real diagnosis.
-// Optional: FIXLENS_PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs
+// Optional: IOFIX_PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-const { chromium } = await import(process.env.FIXLENS_PLAYWRIGHT_MODULE || 'playwright');
-const browser = await chromium.launch({ executablePath: process.env.FIXLENS_BROWSER || '/usr/bin/brave', headless: true, args: ['--no-sandbox', '--disable-dev-shm-usage'] });
-const url = process.env.FIXLENS_URL || 'http://127.0.0.1:5175';
+const { chromium } = await import(process.env.IOFIX_PLAYWRIGHT_MODULE || 'playwright');
+const browser = await chromium.launch({ executablePath: process.env.IOFIX_BROWSER || '/usr/bin/brave', headless: true, args: ['--no-sandbox', '--disable-dev-shm-usage'] });
+const url = process.env.IOFIX_URL || 'http://127.0.0.1:5175';
 const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aGZkAAAAASUVORK5CYII=', 'base64');
 const fixture = { model: 'fixture-vision', generatedAt: new Date().toISOString(), status: 'unverified_model_assessment', report: { summary: 'TEST FIXTURE: not an actual circuit diagnosis.', observations: ['Fixture observation'], findings: [{ title: '<img src=x onerror=alert(1)>', severity: 'medium', basis: 'hypothesis', evidence: [{ photo: 1, detail: 'Fixture evidence' }], explanation: 'Fixture mechanism', proposedFix: 'Fixture conditional repair', verification: 'Fixture verification', unknowns: ['Actual wiring is unknown'] }], limitations: ['Simulated model output for UI testing only.'], nextChecks: ['Supply real photographs for evaluation.'] } };
 try {
@@ -12,7 +12,7 @@ try {
  const errors = []; page.on('pageerror', e => errors.push(e.message));
  await page.goto(url);
  await page.locator('#model-status').filter({ hasText: /LM Studio|vision|Local/ }).waitFor();
- await page.screenshot({ path: '/tmp/fixlens-diagnostics-desktop.png', fullPage: true });
+ await page.screenshot({ path: '/tmp/iofix-diagnostics-desktop.png', fullPage: true });
  await page.route('**/api/models', route => route.fulfill({ json: { models: ['fixture-vision'], message: 'Explicit test fixture model' } }));
  await page.locator('#refresh-models').click();
  await page.locator('#model').selectOption('fixture-vision');
@@ -52,7 +52,7 @@ try {
    await page.setViewportSize({ width, height: 844 });
    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `No overflow at ${width}`);
  }
- await page.screenshot({ path: '/tmp/fixlens-diagnostics-mobile.png', fullPage: true });
+ await page.screenshot({ path: '/tmp/iofix-diagnostics-mobile.png', fullPage: true });
  await page.getByRole('button', { name: 'Remove photo 1' }).click();
  assert.ok(await page.locator('#analyze').isDisabled());
  assert.deepEqual(errors, []);

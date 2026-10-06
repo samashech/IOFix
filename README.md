@@ -1,4 +1,4 @@
-# FixLens
+# IOfix
 
 Photo-first circuit diagnostics for robotics builders. Primary users are the
 founder and senior members of a student-led robotics club. Teaching is secondary.
@@ -48,15 +48,15 @@ lms server start --bind 127.0.0.1 --port 1234
 lms load prism-ml/bonsai-27b --context-length 8192 --ttl 1800
 ```
 
-Refresh models in FixLens. The adapter discovers vision models through
+Refresh models in IOfix. The adapter discovers vision models through
 `/api/v1/models` and sends image inputs and a JSON schema to
 `/v1/chat/completions`. No weights are automatically downloaded. Invalid responses
 are rejected rather than replaced with canned findings.
 
-`FIXLENS_MODEL_URL` can select another loopback HTTP port (default
+`IOFIX_MODEL_URL` can select another loopback HTTP port (default
 `http://127.0.0.1:1234`). The current adapter requires LM Studio's model-discovery API
 and an unauthenticated loopback server; remote endpoints are not enabled.
-FixLens binds to loopback, restricts request origins, caps request sizes, allows
+IOfix binds to loopback, restricts request origins, caps request sizes, allows
 one analysis at a time, and uses a three-minute timeout. A large model on slow
 hardware may require smaller inputs or a later timeout adjustment.
 
@@ -66,7 +66,7 @@ See [model plan](docs/model-plan.md) for data collection and fine-tuning criteri
 ## Data handling
 
 Photos and context live in browser memory for this session. On Analyze they are
-sent to the local model service. FixLens does not persist uploads or log bodies;
+sent to the local model service. IOfix does not persist uploads or log bodies;
 the model service has its own behavior. Report exports contain the case text and
 photo filenames, but not image data. Refresh clears the current case.
 
@@ -86,8 +86,8 @@ remains a separate saved idea.
 ## Browser checks
 
 With the server running and Playwright available, run
-`node scripts/check-browser.mjs`. `FIXLENS_PLAYWRIGHT_MODULE` may point to an existing
-Playwright module and `FIXLENS_BROWSER` to a Chromium-compatible executable.
+`node scripts/check-browser.mjs`. `IOFIX_PLAYWRIGHT_MODULE` may point to an existing
+Playwright module and `IOFIX_BROWSER` to a Chromium-compatible executable.
 The script uses explicitly simulated model output and verifies uploads, report
 rendering/export, stale-result rejection, failure states, and mobile layouts.
 

@@ -20,7 +20,7 @@ async function body(req) {
   try { return JSON.parse(Buffer.concat(chunks).toString()); } catch { throw new InputError('Request is not valid JSON.'); }
 }
 
-export function createServer({ fetchImpl = fetch, modelUrl = process.env.FIXLENS_MODEL_URL || 'http://127.0.0.1:1234', timeout = 180000 } = {}) {
+export function createServer({ fetchImpl = fetch, modelUrl = process.env.IOFIX_MODEL_URL || 'http://127.0.0.1:1234', timeout = 180000 } = {}) {
   const endpoint = new URL(modelUrl);
   if (!['127.0.0.1', 'localhost', '[::1]'].includes(endpoint.hostname) || endpoint.protocol !== 'http:') throw new Error('Use a local HTTP LM Studio endpoint; remote uploads are not enabled.');
   let busy = false;
@@ -80,5 +80,5 @@ export function createServer({ fetchImpl = fetch, modelUrl = process.env.FIXLENS
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const port = Number(process.env.PORT || 5175);
-  createServer().listen(port, '127.0.0.1', () => console.log(`FixLens: http://127.0.0.1:${port}`));
+  createServer().listen(port, '127.0.0.1', () => console.log(`IOfix: http://127.0.0.1:${port}`));
 }

@@ -1,4 +1,4 @@
-# FixLens: robot-controller diagnosis and model plan
+# IOfix: robot-controller diagnosis and model plan
 
 ## Product decision — 2026-10-06
 

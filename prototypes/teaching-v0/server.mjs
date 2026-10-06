@@ -22,4 +22,4 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(500).end('Unable to load application');
   }
 });
-server.listen(port, '127.0.0.1', () => console.log(`FixLens: http://127.0.0.1:${port}`));
+server.listen(port, '127.0.0.1', () => console.log(`IOfix: http://127.0.0.1:${port}`));

@@ -98,6 +98,6 @@ $('#cancel').addEventListener('click', () => controller?.abort());
 $('#download').addEventListener('click', () => {
   if (!result) return;
   const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }));
-  const link = node('a'); link.href = url; link.download = 'fixlens-diagnostic-report.json'; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const link = node('a'); link.href = url; link.download = 'iofix-diagnostic-report.json'; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 refreshModels();

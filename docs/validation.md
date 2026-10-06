@@ -18,7 +18,7 @@ its BF16 vision projector, an 8192-token context, and a 30-minute idle TTL.
 Combined model/projector files: 4,734,598,464 bytes (LM Studio API separately reports
 4,734,614,604 bytes; the small accounting difference was not investigated).
 
-A screenshot of the FixLens interface was sent through the actual `/api/analyze`
+A screenshot of the IOfix interface was sent through the actual `/api/analyze`
 route with empty circuit context. The filename explicitly identified it as an
 application screenshot, so this is not a blind visual-recognition benchmark.
 The model returned HTTP 200 and a schema-valid report with no findings, stating

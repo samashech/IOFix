@@ -1,4 +1,4 @@
-# FixLens
+# IOfix
 
 A robotics-club teaching companion: compare a build with a reference, record
 observations, learn why a check matters, and hand a mentor the troubleshooting history.
@@ -8,7 +8,7 @@ observations, learn why a check matters, and hand a mentor the troubleshooting h
 Requires Node.js 22 or later. No dependencies or API keys.
 
 ```sh
-cd /home/samashech/Documents/FixLens
+cd /home/samashech/Documents/IOfix
 npm run dev
 ```
 
