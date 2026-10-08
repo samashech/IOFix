@@ -13,7 +13,7 @@ Node.js 22 or later; no npm dependencies.
 npm run dev
 ```
 
-Open http://127.0.0.1:5175. `npm test` runs the API and report-contract tests.
+Open http://127.0.0.1:5175. `npm test` runs the API and report-contract tests
 
 ## Current implementation
 
